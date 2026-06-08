@@ -1,0 +1,105 @@
+OGILVY-STRATEGY-TEAM — WHY, HOW, AND WHAT IT'S WORTH
+=====================================================
+
+
+IT RUNS LOCALLY, NOT IN THE CLOUD
+---------------------------------
+"Agent teams" is an experimental Claude Code feature that runs several Claude
+Code sessions at once on your own machine. With tmux mode they appear in split
+panes, so you watch each teammate work live. It is not a cloud service. The
+reason to use teams is not "it's cloud" — it's point 1 below.
+
+
+1. WHAT WAS CHOSEN (and why)
+----------------------------
+An AGENT TEAM with a team lead + 3-4 teammates, not a single analysis and not
+the older fire-and-forget subagent approach.
+
+a) Teams instead of subagents.
+   Subagents can only report back to the lead — they cannot talk to each other.
+   An agent team can: teammates message each other and attack each other's
+   logic. That mutual debate IS the pressure-test. Without it, a single session
+   or a plain workflow would do.
+
+b) One team with differentiated roles, not multiple teams.
+   Claude Code allows only one team at a time (no nested teams). So: one team,
+   with roles — diagnose, market, strategy, and a red team that tears it apart.
+
+c) The 21 McKinsey-style frameworks as a REFERENCE LIBRARY inside the skill,
+   not 21 separate skills.
+   Two reasons: (1) 21 stray slash-commands you never call individually is
+   clutter; (2) more important, a teammate does NOT inherit a subagent's skill
+   frontmatter — installing them as skills wouldn't help the teammates anyway.
+   So the teammates just READ the framework files. That always works.
+
+d) Three of the six workflow patterns, deliberately not all six.
+   Used: classify-and-act (lead picks problem type + frameworks) -> fan-out-
+   and-synthesize (teammates in parallel, lead merges) -> adversarial
+   verification (red-team pressure-test). Tournament, generate-and-filter and
+   loop-until-done were left out — overkill for v1.
+
+
+2. HOW IT WORKS
+---------------
+You start it with: "use the strategy team to prepare a decision on X." Then:
+
+STEP 0 — Intake. The lead asks a few sharp questions: the real decision
+   question, the audience, the constraints, what's already known. Better
+   context in, better result out.
+
+STEP 1 — Classify. The lead picks the problem type (growth stuck? merger?
+   pricing? new market?) and the right frameworks per role, then shows you a
+   short plan ("I'll spawn these teammates with these frameworks — OK?"). That
+   is your steering moment before tokens burn.
+
+STEP 2 — Workspace. The lead writes all context to one shared file
+   (/tmp/strat-team-<slug>/brief.md). Teammates don't inherit your
+   conversation, so everything flows through that file.
+
+STEP 3 — Fan-out. The lead opens the team (TeamCreate) and spawns the
+   teammates. Each reads the brief + its framework(s), applies it strictly to
+   your question, and writes findings to its own file. They run in parallel,
+   each in its own pane. You can message any teammate mid-run to steer it.
+
+STEP 4 — Synthesis. The lead reads all findings and builds a draft
+   recommendation using the Pyramid Principle (governing thought -> 3 arguments
+   -> backing).
+
+STEP 5 — Pressure-test (the core). Only NOW does the lead spawn the red team —
+   after the draft exists. The red team's job is NOT to confirm but to REFUTE:
+   which assumptions must hold, and where does it break? It war-games competitor
+   moves, market shifts, customer reactions, execution failure, regulation. For
+   high stakes, two teammates challenge each other until only robust assumptions
+   remain.
+
+STEP 6 — Deliverable. The lead folds the surviving critique in and ships a
+   board-ready decision memo + narrative: decision question, recommendation,
+   options with trade-offs, business case, top risks + mitigations, first 90
+   days, and a 60-second story with hostile Q&A. Written to a durable file so
+   you can take it into the meeting.
+
+STEP 7 — Cleanup. The lead shuts the teammates down and cleans up the team.
+
+
+3. WHAT IT'S WORTH
+------------------
+- An analysis that SURVIVES the meeting. Not just advice, but advice already
+  put through a hostile red team. You know the weak spots before anyone in the
+  room finds them.
+
+- Structure on a vague or large question. A merger or strategy question gets
+  split into diagnose / market / choice / risk, each with a proven method —
+  instead of one lump of gut feel.
+
+- Speed and depth at once. 3-4 "consultants" work in parallel in minutes, not a
+  sequential session over hours. And you can steer live.
+
+- A concrete, shareable deliverable: a decision memo you put straight into a
+  leadership or board meeting.
+
+- Reusable and portable. It's one self-contained folder you can hand to a
+  colleague as-is.
+
+COST / WHEN NOT. A run = 3-4 live sessions, so noticeably more tokens than an
+ordinary chat. Use it for real decisions, not a quick question. For a single
+framework, load that framework directly.
