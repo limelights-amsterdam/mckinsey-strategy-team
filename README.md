@@ -1,10 +1,11 @@
 # mckinsey-strategy-team
 
 A Claude Code **skill** that orchestrates a live *agent team* for strategic decisions. A team lead
-runs intake, classifies the question, spawns 3-4 teammates that work McKinsey-style frameworks in
-parallel, synthesizes a recommendation, then a **red-team** teammate attacks its own logic
-(pressure-test) before it ships. Output: a board-ready **decision memo + narrative** that survives a
-leadership or board meeting.
+runs intake, classifies the question, then runs the team in waves on McKinsey-style frameworks:
+diagnose + map the market in parallel, generate **competing options from opposing mandates** and
+filter them to a shortlist, synthesize a recommendation, then turn a **panel of verifiers** loose on
+its load-bearing assumptions (a weakness ≥2 of them agree on doesn't survive) before it ships.
+Output: a board-ready **decision memo + narrative** that survives a leadership or board meeting.
 
 Use it to: prepare a leadership/board session, structure a merger/M&A question, or stress-test /
 war-game an existing strategy.
@@ -58,12 +59,14 @@ Start a new Claude Code session and say, for example:
 > *"Use the strategy team to prepare a leadership decision on whether we do [X] or [Y]. Here's the
 > context: …"*
 
-The lead runs a short intake and shows you an engagement plan (which teammates, which frameworks)
-before any teammates are spawned. Then the pipeline runs:
-**classify → fan-out → synthesize → adversarial pressure-test → decision memo**.
+The lead runs a short intake and shows you an engagement plan (the wave plan, which frameworks,
+standard vs deep mode) before any teammates are spawned. Then the pipeline runs:
+**classify → diagnose + market → generate-and-filter options → synthesize → verifier-panel
+pressure-test → decision memo**. Deep mode adds a tournament to rank surviving options and a
+loop that keeps hunting risks until the panel runs dry.
 
-A run = 3-4 live sessions (teammates) — noticeably more tokens than an ordinary chat. Use it for
-real decisions, not quick questions.
+A standard run is ~7 live sessions across its waves (more in deep mode) — noticeably more tokens
+than an ordinary chat. Use it for real decisions, not quick questions.
 
 ## Not for this
 
