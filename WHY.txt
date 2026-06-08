@@ -5,8 +5,8 @@ OGILVY-STRATEGY-TEAM — WHY, HOW, AND WHAT IT'S WORTH
 IT RUNS LOCALLY, NOT IN THE CLOUD
 ---------------------------------
 "Agent teams" is an experimental Claude Code feature that runs several Claude
-Code sessions at once on your own machine. With tmux mode they appear in split
-panes, so you watch each teammate work live. It is not a cloud service. The
+Code sessions at once on your own machine, so you watch each teammate work
+live. It is not a cloud service. The
 reason to use teams is not "it's cloud" — it's point 1 below.
 
 

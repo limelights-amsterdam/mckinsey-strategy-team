@@ -30,7 +30,7 @@ teammate does not inherit a subagent's skill frontmatter.
   ```json
   { "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }
   ```
-- **Recommended:** `"teammateMode": "tmux"` for split panes (or `"in-process"` — works in any terminal).
+- Works in any terminal — the default `"teammateMode": "in-process"` is all you need.
 
 ## Install
 

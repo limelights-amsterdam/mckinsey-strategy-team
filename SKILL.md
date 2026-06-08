@@ -40,7 +40,7 @@ Built on the 21 McKinsey-style frameworks in `references/`
 ## Prerequisites
 - `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` (env or settings.json)
 - Claude Code ≥ 2.1.32
-- `teammateMode` set to `tmux` (split panes) or `in-process` — both work.
+- `teammateMode` set to `in-process` (the default) — works in any terminal.
 
 If agent teams are off, say so and offer to set the env var rather than silently degrading to plain
 subagents.
@@ -150,7 +150,6 @@ and show the core in chat.
 ### Step 7 — Cleanup
 - Shut each teammate down: `SendMessage({ to: "<name>", message: { type: "shutdown_request", reason: "done" } })`.
 - Clean up the team once all teammates are gone (only the **lead** runs cleanup).
-- Check `tmux ls` for orphaned sessions.
 
 ---
 
