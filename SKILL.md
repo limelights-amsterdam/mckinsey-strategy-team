@@ -1,5 +1,5 @@
 ---
-name: ogilvy-strategy-team
+name: mckinsey-strategy-team
 description: >
   Orchestrates a live agent team that pressure-tests a strategic question with McKinsey-style
   frameworks. A team lead runs intake, classifies the problem, spawns 3-4 teammates that work the
@@ -68,15 +68,18 @@ frameworks — OK?") so they can steer before tokens burn.
 1. Slug the topic and make a workspace: `/tmp/strat-team-<slug>/`.
 2. Write `brief.md` with ALL intake context + the engagement plan. This is the shared source every
    teammate reads (teammates do NOT inherit the lead's conversation).
-3. **Resolve the skill root absolutely** (critical for portability):
+3. **Resolve the references directory absolutely** (critical for portability). The skill may be
+   installed user-level *or* per-project, so try both and keep the first that resolves:
    ```
-   realpath ~/.claude/skills/ogilvy-strategy-team/references
+   realpath ~/.claude/skills/mckinsey-strategy-team/references 2>/dev/null \
+     || realpath "$PWD/.claude/skills/mckinsey-strategy-team/references"
    ```
-   Use the result as the prefix for every framework path you hand teammates.
+   Call the result `<REFS>` — it already ends in `/references`. Hand teammates paths of the form
+   `<REFS>/<domain>/<file>.md` (never `<REFS>/references/...` — that double-counts the folder).
 
 > ⚠️ **Never hardcode a user-specific path** in spawn prompts. Teammates are fresh,
 > cwd-independent sessions; a hardcoded path breaks the moment the folder lives somewhere else.
-> Always resolve at runtime via the symlink above.
+> Always resolve `<REFS>` at runtime as above and pass the absolute result.
 
 ### Step 3 — Fan-out: open team + spawn teammates (wave 1)
 Use the agent-team primitives — don't fall back to plain subagents:
@@ -100,7 +103,7 @@ Use the agent-team primitives — don't fall back to plain subagents:
 ```
 You are the <role> teammate on a strategy team. Question: <one line>.
 1. First read the shared brief: /tmp/strat-team-<slug>/brief.md
-2. Read your framework(s): <ABSOLUTE path>/references/<domain>/<skill>.md  (one or more)
+2. Read your framework(s): <REFS>/<domain>/<file>.md  (one or more; <REFS> is absolute)
 3. Apply the framework method strictly to THIS question. No generic theory — concrete findings,
    with explicit assumptions where data is missing.
 4. Write your output to /tmp/strat-team-<slug>/<role>.md (you own this file — no conflicts).
@@ -121,8 +124,8 @@ Spawn the **`red-team` teammate only now** — after `draft-recommendation.md` e
 idles or attacks incomplete work). Brief:
 ```
 You are the red team. Read /tmp/strat-team-<slug>/draft-recommendation.md and the brief.
-Read your frameworks: <path>/references/05-.../war-gaming.md and
-<path>/references/01-.../assumption-audit.md.
+Read your frameworks: <REFS>/05-risk-performance-and-value-governance/war-gaming.md and
+<REFS>/01-diagnosis-and-framing/assumption-audit.md.
 Your job is NOT to confirm — it's to REFUTE the recommendation. Attack the load-bearing
 assumptions: what must be true for this to hold, and where does it break? War-game competitor
 moves, market shifts, customer reactions, execution failure, regulation. Write the surviving

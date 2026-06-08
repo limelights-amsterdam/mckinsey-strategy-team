@@ -1,4 +1,4 @@
-# ogilvy-strategy-team
+# mckinsey-strategy-team
 
 A Claude Code **skill** that orchestrates a live *agent team* for strategic decisions. A team lead
 runs intake, classifies the question, spawns 3-4 teammates that work McKinsey-style frameworks in
@@ -12,7 +12,7 @@ war-game an existing strategy.
 ## What's inside
 
 ```
-ogilvy-strategy-team/
+mckinsey-strategy-team/
 ├── SKILL.md        # the team-lead recipe (the orchestration)
 ├── README.md       # this file
 ├── WHY.txt         # the design rationale (what, how, value)
@@ -37,17 +37,19 @@ teammate does not inherit a subagent's skill frontmatter.
 **Option A — user skill (available everywhere):**
 ```sh
 # put this folder wherever you like, then symlink it:
-ln -s "$(pwd)/ogilvy-strategy-team" ~/.claude/skills/ogilvy-strategy-team
+ln -s "$(pwd)/mckinsey-strategy-team" ~/.claude/skills/mckinsey-strategy-team
 ```
 
 **Option B — per project:**
 ```sh
-cp -R ogilvy-strategy-team .claude/skills/ogilvy-strategy-team
+cp -R mckinsey-strategy-team .claude/skills/mckinsey-strategy-team
 ```
 
-> The skill resolves its own `references/` path at runtime via
-> `~/.claude/skills/ogilvy-strategy-team/references`, so the folder can live anywhere as long as the
-> symlink/install above is correct. **No hardcoded paths.**
+> At runtime the lead resolves its `references/` path, trying the user-level install
+> (`~/.claude/skills/mckinsey-strategy-team/references`) first and falling back to a per-project
+> install (`$PWD/.claude/skills/mckinsey-strategy-team/references`) — so **either install option
+> above works**. The only requirement is that the install folder keeps the name
+> `mckinsey-strategy-team`.
 
 ## Use
 

@@ -1,5 +1,5 @@
-OGILVY-STRATEGY-TEAM — WHY, HOW, AND WHAT IT'S WORTH
-=====================================================
+MCKINSEY-STRATEGY-TEAM — WHY, HOW, AND WHAT IT'S WORTH
+======================================================
 
 
 IT RUNS LOCALLY, NOT IN THE CLOUD
