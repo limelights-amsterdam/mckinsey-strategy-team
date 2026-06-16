@@ -24,6 +24,14 @@ The 21 frameworks come from github.com/aapersh/strategy-skills-for-claude. They 
 separate skills — the teammates **read them as files**. That sidesteps the limitation that a
 teammate does not inherit a subagent's skill frontmatter.
 
+## Credits
+
+The framework reference docs in `references/` are based on **Oria AI's "21 Strategy Skills for
+Claude"** — [oria.one/resources/21-strategy-skills-for-claude](https://www.oria.one/resources/21-strategy-skills-for-claude).
+This project adapts that material into a live agent-team orchestration; all the underlying
+McKinsey-style methodology and framework write-ups originate from their work. Huge thanks to the
+Oria team for making it available — bedankt! 🙏
+
 ## Prerequisites
 
 - **Claude Code ≥ 2.1.32** (`claude --version`)
