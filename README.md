@@ -27,7 +27,12 @@ teammate does not inherit a subagent's skill frontmatter.
 ## Prerequisites
 
 - **Claude Code ≥ 2.1.32** (`claude --version`)
-- **Agent teams enabled** — in `~/.claude/settings.json`:
+- **Agent teams enabled.** Quickest way — run this in your terminal before you start:
+  ```sh
+  export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+  ```
+  That only applies to the Claude Code session you launch from that shell. To enable it
+  everywhere (including the desktop/web app), set it in `~/.claude/settings.json` instead:
   ```json
   { "env": { "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1" } }
   ```
