@@ -85,3 +85,9 @@ than an ordinary chat. Use it for real decisions, not quick questions.
 
 - Applying a single framework on its own → just load that framework directly.
 - A quick question that doesn't justify a multi-agent run → use a single session.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE). This covers the orchestration and docs in this repo. The framework
+reference material is adapted from Oria AI (see [Credits](#credits)); please keep that attribution
+when reusing it.
