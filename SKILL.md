@@ -131,8 +131,8 @@ Spawn these two **in parallel** — they're independent, and both feed everythin
 | `market` | `02-.../market-mapping` + `competitive-intel` (+ `profit-pool-analysis` / `customer-segmentation` if relevant) |
 
 Wait for both. Their files (`diagnose.md`, `market.md`) are the factual floor the options stand on —
-which is exactly why options are **not** generated in this wave. Letting the option work run blind to
-the market analysis was the old flow's weak point; the wave split fixes it.
+which is exactly why options are **not** generated in this wave: options written without the market
+analysis in hand miss what the market already rules out.
 
 ### Step 5 — Wave B: generate competing options, then filter (pattern ④ generate-and-filter)
 A single "strategy" teammate tends to emit its first three ideas and a false binary. Instead, generate
